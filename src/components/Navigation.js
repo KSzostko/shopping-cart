@@ -8,14 +8,16 @@ const StyledNav = styled.nav`
 const StyledList = styled.ul`
     list-style: none;
     display: flex;
-    justify-content: center;
+    max-width: 1024px;
+    margin: 0 auto;
 `;
 
 const StyledListItem = styled.li`
-    margin: 0 1rem;
+    margin: 0 2rem;
 `;
 
 const StyledLink = styled.a`
+    padding: 1.5rem 0;
     display: block;
     text-decoration: none;
     color: #000;
@@ -27,6 +29,9 @@ function Navigation() {
             <StyledList>
                 <StyledListItem>
                     <StyledLink href="">Store</StyledLink>
+                </StyledListItem>
+                <StyledListItem>
+                    <StyledLink href="">About</StyledLink>
                 </StyledListItem>
                 <StyledListItem>
                     <StyledLink href="">Cart</StyledLink>
