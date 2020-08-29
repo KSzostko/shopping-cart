@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ProductItem from './ProductItem';
 
 const StyledSection = styled.section`
     max-width: 1024px;
@@ -18,10 +19,10 @@ function ProductsList() {
     return (
         <StyledSection>
             <StyledList>
-                <li>Product item</li>
-                <li>Product item</li>
-                <li>Product item</li>
-                <li>Product item</li>
+                <ProductItem />
+                <ProductItem />
+                <ProductItem />
+                <ProductItem />
             </StyledList>
         </StyledSection>
     );
