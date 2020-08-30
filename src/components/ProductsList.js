@@ -11,14 +11,18 @@ const StyledList = styled.ul`
     list-style: none;
     padding-left: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem 4rem;
 `;
 
 function ProductsList() {
     return (
         <StyledSection>
             <StyledList>
+                <ProductItem />
+                <ProductItem />
+                <ProductItem />
+                <ProductItem />
                 <ProductItem />
                 <ProductItem />
                 <ProductItem />
