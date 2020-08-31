@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import photo from '../img/hmgoepprod.jpg';
+import Button from './Button';
 
 const StyledListItem = styled.li`
     position: relative;
@@ -51,8 +52,8 @@ function ProductItem() {
     return (
         <StyledListItem onMouseEnter={handleOverlay} onMouseLeave={handleOverlay}>
             <StyledOverlay ref={overlayRef}>
-                <button>View</button>
-                <button>Add to cart</button>
+                <Button>View</Button>
+                <Button>Add to cart</Button>
             </StyledOverlay>
             <StyledImage src={photo} alt="t-shirt"/>
             <div>
