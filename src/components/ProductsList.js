@@ -11,7 +11,7 @@ const StyledList = styled.ul`
     list-style: none;
     padding-left: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, 208px);
     gap: 2rem 4rem;
 `;
 
