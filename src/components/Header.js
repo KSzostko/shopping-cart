@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
-    margin-top: 2rem;
+    margin-top: 6rem;
     display: flex;
     flex-direction: column;
     align-items: center;
