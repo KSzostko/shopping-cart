@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-// import photo from '../img/hmgoepprod.jpg';
 import Button from './Button';
 
 const StyledListItem = styled.li`
