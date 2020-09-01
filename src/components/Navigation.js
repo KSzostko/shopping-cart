@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledNav = styled.nav`
@@ -22,7 +23,7 @@ const StyledListItem = styled.li`
     margin: 0 2rem;
 `;
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
     padding: 1.25rem 0 1rem;
     display: block;
     text-decoration: none;
@@ -49,13 +50,13 @@ function Navigation() {
         <StyledNav>
             <StyledList>
                 <StyledListItem>
-                    <StyledLink href="">Store</StyledLink>
+                    <StyledLink to="/">Store</StyledLink>
                 </StyledListItem>
                 <StyledListItem>
-                    <StyledLink href="">About</StyledLink>
+                    <StyledLink to="/about">About</StyledLink>
                 </StyledListItem>
                 <StyledListItem>
-                    <StyledLink href="">Cart</StyledLink>
+                    <StyledLink to="/cart">Cart</StyledLink>
                 </StyledListItem>
             </StyledList>
         </StyledNav>
