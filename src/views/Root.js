@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import StoreView from './StoreView';
 import AboutView from './AboutView';
 import CartView from './CartView';
+import ProductView from './ProductView';
 
 function Root() {
     return (
@@ -11,6 +12,7 @@ function Root() {
                 <Route exact path="/" component={StoreView} />
                 <Route path="/about" component={AboutView} />
                 <Route path="/cart" component={CartView} />
+                <Route path="/product/:id" component={ProductView} />
             </Switch>
         </BrowserRouter>
     );

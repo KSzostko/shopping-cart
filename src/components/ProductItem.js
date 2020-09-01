@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from './Button';
 
@@ -27,6 +28,21 @@ const StyledOverlay = styled.div`
     }
 `;
 
+const StyledLink = styled(Link)`
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    width: 180px;
+    margin: .5rem 0;
+    padding: .5rem 0;
+    background-color: #ababab;
+    color: #fff;
+    border-style: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+`;
+
 const StyledImage = styled.img`
     width: 100%;
 `;
@@ -41,8 +57,10 @@ const StyledPrice = styled.span`
     font-size: .85rem;
 `;
 
-function ProductItem({ item: { name, price, photo } }) {
+function ProductItem({ item }) {
     const overlayRef = useRef();
+
+    const { id, name, price, photo } = item;
 
     const handleOverlay = () => {
         const overlay = overlayRef.current;
@@ -52,7 +70,12 @@ function ProductItem({ item: { name, price, photo } }) {
     return (
         <StyledListItem onMouseEnter={handleOverlay} onMouseLeave={handleOverlay}>
             <StyledOverlay ref={overlayRef}>
-                <Button>View</Button>
+                <StyledLink to={{
+                    pathname: `product/${id}`,
+                    state: item,
+                }}>
+                    View
+                </StyledLink>
                 <Button>Add to cart</Button>
             </StyledOverlay>
             <StyledImage src={photo} alt={name}/>
