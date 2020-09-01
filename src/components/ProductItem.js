@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import photo from '../img/hmgoepprod.jpg';
+// import photo from '../img/hmgoepprod.jpg';
 import Button from './Button';
 
 const StyledListItem = styled.li`
@@ -41,7 +41,7 @@ const StyledPrice = styled.span`
     font-size: .85rem;
 `;
 
-function ProductItem() {
+function ProductItem({ item: { name, price, photo } }) {
     const overlayRef = useRef();
 
     const handleOverlay = () => {
@@ -55,10 +55,10 @@ function ProductItem() {
                 <Button>View</Button>
                 <Button>Add to cart</Button>
             </StyledOverlay>
-            <StyledImage src={photo} alt="t-shirt"/>
+            <StyledImage src={photo} alt={name}/>
             <div>
-                <StyledName>Product Name</StyledName>
-                <StyledPrice>$39.11</StyledPrice>
+                <StyledName>{name}</StyledName>
+                <StyledPrice>${price}</StyledPrice>
             </div>
         </StyledListItem>
     );

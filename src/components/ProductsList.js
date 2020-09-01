@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import products from '../products';
 import ProductItem from './ProductItem';
 
 const StyledSection = styled.section`
@@ -19,14 +20,9 @@ function ProductsList() {
     return (
         <StyledSection>
             <StyledList>
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
-                <ProductItem />
+                {products.map(product => (
+                    <ProductItem key={product.id} item={product} />
+                ))}
             </StyledList>
         </StyledSection>
     );
