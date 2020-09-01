@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import products from '../products';
 import ProductItem from './ProductItem';
 
 const StyledSection = styled.section`
@@ -16,7 +16,7 @@ const StyledList = styled.ul`
     gap: 2rem 4rem;
 `;
 
-function ProductsList() {
+function ProductsList({ products }) {
     return (
         <StyledSection>
             <StyledList>
@@ -27,5 +27,14 @@ function ProductsList() {
         </StyledSection>
     );
 }
+
+ProductsList.propTypes = {
+    products: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        photo: PropTypes.string.isRequired,
+    })),
+};
 
 export default ProductsList;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledSearch = styled.section`
@@ -28,13 +29,22 @@ const StyledInput = styled.input`
     }
 `;
 
-function Search() {
+function Search({ filterProductsFn, count }) {
     return (
         <StyledSearch>
-            <StyledSpan>10 products</StyledSpan>
-            <StyledInput type="text" placeholder="Search product"/>
+            <StyledSpan>{count} products</StyledSpan>
+            <StyledInput
+                type="text"
+                placeholder="Search product"
+                onChange={filterProductsFn}
+            />
         </StyledSearch>
     );
 }
+
+Search.propTypes = {
+    filterProductsFn: PropTypes.func.isRequired,
+    count: PropTypes.number,
+};
 
 export default Search;
