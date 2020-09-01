@@ -16,15 +16,28 @@ const StyledList = styled.ul`
     gap: 2rem 4rem;
 `;
 
+const StyledMessage = styled.p`
+    margin: 4rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 300;
+`;
+
 function ProductsList({ products }) {
     return (
-        <StyledSection>
-            <StyledList>
-                {products.map(product => (
-                    <ProductItem key={product.id} item={product} />
-                ))}
-            </StyledList>
-        </StyledSection>
+        <>
+            {products.length ? (
+                <StyledSection>
+                    <StyledList>
+                        {products.map(product => (
+                            <ProductItem key={product.id} item={product} />
+                        ))}
+                    </StyledList>
+                </StyledSection>
+            ) : (
+                <StyledMessage>No items found</StyledMessage>
+            )}
+        </>
     );
 }
 
