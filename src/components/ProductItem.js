@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from './Button';
 
@@ -62,5 +63,14 @@ function ProductItem({ item: { name, price, photo } }) {
         </StyledListItem>
     );
 }
+
+ProductItem.propTypes = {
+    item: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        photo: PropTypes.string.isRequired,
+    }),
+};
 
 export default ProductItem;
