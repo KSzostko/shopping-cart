@@ -56,7 +56,9 @@ function Navigation() {
                     <StyledLink to="/about">About</StyledLink>
                 </StyledListItem>
                 <StyledListItem>
-                    <StyledLink to="/cart">Cart</StyledLink>
+                    <StyledLink to="/cart">
+                        <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+                    </StyledLink>
                 </StyledListItem>
             </StyledList>
         </StyledNav>

@@ -38,10 +38,10 @@ function CartItem() {
             <StyledText>Qty: 1</StyledText>
             <div>
                 <StyledButton black small>
-                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    <i className="fa fa-plus-circle" aria-hidden="true"></i>
                 </StyledButton>
                 <StyledButton red small>
-                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                    <i className="fa fa-minus-circle" aria-hidden="true"></i>
                 </StyledButton>
             </div>
         </StyledListItem>
