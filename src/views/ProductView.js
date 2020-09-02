@@ -1,5 +1,6 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 import ProductDetails from '../components/ProductDetails';
 
 function ProductView(props) {
@@ -9,6 +10,7 @@ function ProductView(props) {
         <>
             <Navigation />
             <ProductDetails name={name} price={price} photo={photo} />
+            <Footer />
         </>
     );
 }

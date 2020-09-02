@@ -4,7 +4,7 @@ import Button from './Button';
 
 const StyledWrapper = styled.div`
     max-width: 1200px;
-    margin: 10rem auto;
+    margin: 10rem auto 2rem;
     display: flex;
 `;
 

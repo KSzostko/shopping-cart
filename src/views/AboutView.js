@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 
 const StyledText = styled.p`
@@ -14,6 +15,7 @@ function AboutView() {
             <StyledText>
                 this is about view
             </StyledText>
+            <Footer />
         </>
     );
 }
