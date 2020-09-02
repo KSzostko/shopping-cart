@@ -1,19 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
 import Navigation from '../components/Navigation';
+import Header from '../components/Header';
+import CartCheckout from '../components/CartCheckout';
 import Footer from '../components/Footer';
-
-const StyledText = styled.p`
-    margin-top: 6rem;
-`;
 
 function CartView() {
     return (
         <>
             <Navigation />
-            <StyledText>
-                this is cart view
-            </StyledText>
+            <Header title="Cart" subtitle="Here you can confirm your reservation" />
+            <CartCheckout />
             <Footer />
         </>
     );
