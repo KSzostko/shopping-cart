@@ -1,7 +1,9 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { addItem } from '../redux/actions';
 import Button from './Button';
 
 const StyledListItem = styled.li`
@@ -60,11 +62,28 @@ const StyledPrice = styled.span`
 function ProductItem({ item }) {
     const overlayRef = useRef();
 
+    const dispatch = useDispatch();
+    const cartItems = useSelector(state => state.cart.length);
+
     const { id, name, price, photo } = item;
 
     const handleOverlay = () => {
         const overlay = overlayRef.current;
         overlay.classList.toggle('hide');
+    }
+
+    const updateCart = () => {
+        // TODO: Check if the item is already there, then update only quantity
+        const cartItem = {
+            id: cartItems + 1,
+            productId: id,
+            name,
+            price,
+            photo,
+            quantity: 1,
+        };
+
+        dispatch(addItem(cartItem));
     }
     
     return (
@@ -76,7 +95,7 @@ function ProductItem({ item }) {
                 }}>
                     View
                 </StyledLink>
-                <Button>Add to cart</Button>
+                <Button onClick={updateCart}>Add to cart</Button>
             </StyledOverlay>
             <StyledImage src={photo} alt={name}/>
             <div>
