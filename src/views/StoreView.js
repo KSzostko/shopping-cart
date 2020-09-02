@@ -28,7 +28,7 @@ class StoreView extends React.Component {
         return (
             <div>
                 <Navigation />
-                <Header />
+                <Header title="Store" subtitle="Happy shopping!" />
                 <Search filterProductsFn={this.filterProducts} count={products.length} />
                 <ProductsList products={products} />
                 <Footer />

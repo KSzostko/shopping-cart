@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
@@ -21,13 +22,18 @@ const StyledText = styled.p`
     font-weight: 300;
 `;
 
-function Header() {
+function Header({ title, subtitle }) {
     return (
         <StyledHeader>
-            <StyledTitle>Store</StyledTitle>
-            <StyledText>Happy shopping!</StyledText>
+            <StyledTitle>{title}</StyledTitle>
+            <StyledText>{subtitle}</StyledText>
         </StyledHeader>
     );
 }
+
+Header.propTypes = {
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+};
 
 export default Header;
