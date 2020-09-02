@@ -22,7 +22,7 @@ function CartItem() {
             <p>Qty: 1</p>
             <div>
                 <Button black small>+</Button>
-                <Button black small>-</Button>
+                <Button red small>-</Button>
             </div>
         </StyledListItem>
     );
