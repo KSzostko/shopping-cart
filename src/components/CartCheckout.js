@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import Button from '../components/Button';
 
 const StyledWrapper = styled.div`
-    margin-left: 10rem;
+    margin-left: 4rem;
     width: 250px;
+    height: fit-content;
     border: 1px solid #bbb;
     padding: 1rem 2rem;
 `;
