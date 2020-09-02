@@ -9,6 +9,10 @@ const StyledWrapper = styled.div`
     display: flex;
 `;
 
+const StyledImage = styled.img`
+    width: 400px;
+`;
+
 const StyledTextWrapper = styled.div`
     margin-left: 4rem;
     display: flex;
@@ -36,7 +40,7 @@ const StyledInput = styled.input`
 function ProductDetails({ name, price, photo }) {
     return (
         <StyledWrapper>
-            <img src={photo} alt={name}/>
+            <StyledImage src={photo} alt={name}/>
             <StyledTextWrapper>
                 <StyledName>{name}</StyledName>
                 <StyledPrice>${price}</StyledPrice>
