@@ -24,6 +24,7 @@ const StyledText = styled.p`
 
 const StyledButton = styled(Button)`
     margin-right: 1rem;
+    font-size: 1.25rem;
 `;
 
 function CartItem() {
@@ -36,8 +37,12 @@ function CartItem() {
             </div>
             <StyledText>Qty: 1</StyledText>
             <div>
-                <StyledButton black small>+</StyledButton>
-                <Button red small>-</Button>
+                <StyledButton black small>
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </StyledButton>
+                <StyledButton red small>
+                    <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                </StyledButton>
             </div>
         </StyledListItem>
     );
