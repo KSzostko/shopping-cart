@@ -5,10 +5,25 @@ import Button from './Button';
 const StyledListItem = styled.li`
     display: grid;
     grid-template-columns: auto auto 1fr auto;
+    gap: 2rem;
+    margin-bottom: 2rem;
 `;
 
 const StyledImage = styled.img`
     width: 60px;
+`;
+
+const StyledName = styled.h2`
+    margin: 0 0 .25rem 0;
+`;
+
+const StyledText = styled.p`
+    margin: 0;
+    font-weight: 300;
+`;
+
+const StyledButton = styled(Button)`
+    margin-right: 1rem;
 `;
 
 function CartItem() {
@@ -16,12 +31,12 @@ function CartItem() {
         <StyledListItem>
             <StyledImage src="https://lp2.hm.com/hmgoepprod?set=quality[79],source[/b1/6e/b16e4c7d672dc9ae8503cb0a88713a0aeca57ab1.jpg],origin[dam],category[men_tshirtstanks_bestbasics],type[DESCRIPTIVESTILLLIFE],res[m],hmver[1]&call=url[file:/product/main]" alt="product"/>
             <div>
-                <h2>Product Name</h2>
-                <p>Price: $39.11</p>
+                <StyledName>Product Name</StyledName>
+                <StyledText>Price: $39.11</StyledText>
             </div>
-            <p>Qty: 1</p>
+            <StyledText>Qty: 1</StyledText>
             <div>
-                <Button black small>+</Button>
+                <StyledButton black small>+</StyledButton>
                 <Button red small>-</Button>
             </div>
         </StyledListItem>
