@@ -49,7 +49,8 @@ const StyledLink = styled(Link)`
 `;
 
 function Navigation() {
-    const cartItemsCount = useSelector(state => state.cart.length);
+    const cart = useSelector(state => state.cart);
+    const totalItems = cart.reduce((acc, curr) => acc + curr.quantity, 0);
     
     return (
         <StyledNav>
@@ -63,7 +64,7 @@ function Navigation() {
                 <StyledListItem>
                     <StyledLink to="/cart">
                         <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-                        <CartCount>{cartItemsCount}</CartCount>
+                        <CartCount>{totalItems}</CartCount>
                     </StyledLink>
                 </StyledListItem>
             </StyledList>
