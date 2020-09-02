@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import CartCount from './CartCount';
 
@@ -48,6 +49,8 @@ const StyledLink = styled(Link)`
 `;
 
 function Navigation() {
+    const cartItemsCount = useSelector(state => state.cart.length);
+    
     return (
         <StyledNav>
             <StyledList>
@@ -60,7 +63,7 @@ function Navigation() {
                 <StyledListItem>
                     <StyledLink to="/cart">
                         <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-                        <CartCount>3</CartCount>
+                        <CartCount>{cartItemsCount}</CartCount>
                     </StyledLink>
                 </StyledListItem>
             </StyledList>
