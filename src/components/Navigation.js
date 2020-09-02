@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import CartCount from './CartCount';
 
 const StyledNav = styled.nav`
     position: fixed;
@@ -20,6 +21,7 @@ const StyledList = styled.ul`
 `;
 
 const StyledListItem = styled.li`
+    position: relative;
     margin: 0 2rem;
 `;
 
@@ -58,6 +60,7 @@ function Navigation() {
                 <StyledListItem>
                     <StyledLink to="/cart">
                         <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <CartCount>3</CartCount>
                     </StyledLink>
                 </StyledListItem>
             </StyledList>
