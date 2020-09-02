@@ -4,7 +4,7 @@ const Button = styled.button`
     width: 180px;
     margin: .5rem 0;
     padding: .5rem 0;
-    background-color: #ababab;
+    background-color: ${props => props.black ? "#000" : "#ababab"};
     color: #fff;
     border-style: none;
     text-transform: uppercase;

@@ -41,7 +41,7 @@ function ProductDetails({ name, price, photo }) {
                 <StyledName>{name}</StyledName>
                 <StyledPrice>${price}</StyledPrice>
                 <StyledInput type="number" min="1"/>
-                <Button>Add To Cart</Button>
+                <Button black>Add To Cart</Button>
             </StyledTextWrapper>
         </StyledWrapper>
     );

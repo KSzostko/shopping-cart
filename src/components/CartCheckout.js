@@ -43,8 +43,8 @@ function CartCheckout() {
                 <StyledNumber>$117.33</StyledNumber>
             </StyledPaymentWrapper>
             <StyledButtonWrapper>
-                <Button>Clear</Button>
-                <Button>Checkout</Button>
+                <Button black>Clear</Button>
+                <Button black>Checkout</Button>
             </StyledButtonWrapper>
         </StyledWrapper>
     );
