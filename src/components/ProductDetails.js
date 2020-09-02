@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from './Button';
 
@@ -45,5 +46,11 @@ function ProductDetails({ name, price, photo }) {
         </StyledWrapper>
     );
 }
+
+ProductDetails.propTypes = {
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    photo: PropTypes.string.isRequired,
+};
 
 export default ProductDetails;
