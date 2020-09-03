@@ -5,7 +5,9 @@ import Footer from '../components/Footer';
 
 
 const StyledText = styled.p`
-    margin-top: 6rem;
+    max-width: 800px;
+    margin: 6rem auto 0;
+    text-align: center;
 `;
 
 function AboutView() {
@@ -13,7 +15,7 @@ function AboutView() {
         <>
             <Navigation />
             <StyledText>
-                this is about view
+                This project was built to practice using react with redux. We can search for the products, add them and remove them from the cart.
             </StyledText>
             <Footer />
         </>
