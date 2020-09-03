@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Button from '../components/Button';
 
@@ -33,15 +34,19 @@ const StyledButtonWrapper = styled.div`
 `;
 
 function CartCheckout() {
+    const cart = useSelector(state => state.cart);
+    const totalItems = cart.reduce((acc, curr) => acc + curr.quantity, 0);
+    const totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
+    
     return (
         <StyledWrapper>
             <div>
                 <StyledText>Total items</StyledText>
-                <StyledNumber>3</StyledNumber>
+                <StyledNumber>{totalItems}</StyledNumber>
             </div>
             <StyledPaymentWrapper>
                 <StyledText>Total payment</StyledText>
-                <StyledNumber>$117.33</StyledNumber>
+                <StyledNumber>${totalPrice.toFixed(2)}</StyledNumber>
             </StyledPaymentWrapper>
             <StyledButtonWrapper>
                 <Button black>Clear</Button>
