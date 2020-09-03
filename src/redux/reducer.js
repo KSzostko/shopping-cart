@@ -1,4 +1,4 @@
-import { ADD_ITEM, REMOVE_ITEM, ADD_QUANTITY, SUBTRACT_QUANTITY } from './types';
+import { ADD_ITEM, REMOVE_ITEM, ADD_QUANTITY, SUBTRACT_QUANTITY, CLEAR_CART } from './types';
 
 const initialState = {
     cart: []
@@ -38,6 +38,11 @@ const reducer = (state = initialState, action) => {
                         quantity: item.quantity - 1,
                     } : item
                 ))
+            };
+        case CLEAR_CART:
+            return {
+                ...state,
+                cart: [],
             };
         default:
             return state;

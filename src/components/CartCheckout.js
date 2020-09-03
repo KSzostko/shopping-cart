@@ -1,6 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { clearCart } from '../redux/actions';
 import Button from '../components/Button';
 
 const StyledWrapper = styled.div`
@@ -34,9 +35,14 @@ const StyledButtonWrapper = styled.div`
 `;
 
 function CartCheckout() {
+    const dispatch = useDispatch();
     const cart = useSelector(state => state.cart);
     const totalItems = cart.reduce((acc, curr) => acc + curr.quantity, 0);
-    const totalPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
+    const totalPrice = cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0);
+
+    const handleClick = () => {
+        dispatch(clearCart());
+    };
     
     return (
         <StyledWrapper>
@@ -49,8 +55,8 @@ function CartCheckout() {
                 <StyledNumber>${totalPrice.toFixed(2)}</StyledNumber>
             </StyledPaymentWrapper>
             <StyledButtonWrapper>
-                <Button black>Clear</Button>
-                <Button black>Checkout</Button>
+                <Button onClick={handleClick} black>Clear</Button>
+                <Button onClick={handleClick} black>Checkout</Button>
             </StyledButtonWrapper>
         </StyledWrapper>
     );
