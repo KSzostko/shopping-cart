@@ -92,6 +92,7 @@ ProductDetails.propTypes = {
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     photo: PropTypes.string.isRequired,
+    prodId: PropTypes.number.isRequired,
 };
 
 export default ProductDetails;
