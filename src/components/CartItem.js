@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from './Button';
 
@@ -27,15 +28,15 @@ const StyledButton = styled(Button)`
     font-size: 1.25rem;
 `;
 
-function CartItem() {
+function CartItem({ name, price, quantity, photo }) {
     return (
         <StyledListItem>
-            <StyledImage src="https://lp2.hm.com/hmgoepprod?set=quality[79],source[/b1/6e/b16e4c7d672dc9ae8503cb0a88713a0aeca57ab1.jpg],origin[dam],category[men_tshirtstanks_bestbasics],type[DESCRIPTIVESTILLLIFE],res[m],hmver[1]&call=url[file:/product/main]" alt="product"/>
+            <StyledImage src={photo} alt={name}/>
             <div>
-                <StyledName>Product Name</StyledName>
-                <StyledText>Price: $39.11</StyledText>
+                <StyledName>{name}</StyledName>
+                <StyledText>Price: ${price}</StyledText>
             </div>
-            <StyledText>Qty: 1</StyledText>
+            <StyledText>Qty: {quantity}</StyledText>
             <div>
                 <StyledButton black small>
                     <i className="fa fa-plus-circle" aria-hidden="true"></i>
@@ -47,5 +48,12 @@ function CartItem() {
         </StyledListItem>
     );
 }
+
+CartItem.propTypes = {
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    quantity: PropTypes.number.isRequired,
+    photo: PropTypes.string.isRequired,
+};
 
 export default CartItem;

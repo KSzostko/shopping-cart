@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import CartItem from './CartItem';
 
@@ -10,12 +11,19 @@ const StyledList = styled.ul`
 `;
 
 function CartList() {
+    const cart = useSelector(state => state.cart);
+    
     return (
         <StyledList>
-            <CartItem />
-            <CartItem />
-            <CartItem />
-            <CartItem />
+            {cart.map(item => (
+                <CartItem
+                    key={item.id}
+                    name={item.name}
+                    price={item.price}
+                    quantity={item.quantity}
+                    photo={item.photo}
+                />
+            ))}
         </StyledList>
     );
 }
