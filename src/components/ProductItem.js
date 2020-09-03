@@ -93,15 +93,21 @@ function ProductItem({ item }) {
     }
     
     return (
-        <StyledListItem onMouseEnter={handleOverlay} onMouseLeave={handleOverlay}>
+        <StyledListItem
+            onMouseEnter={handleOverlay}
+            onMouseLeave={handleOverlay}
+            data-testid={`store-item${id}`}
+        >
             <StyledOverlay ref={overlayRef}>
                 <StyledLink to={{
                     pathname: `product/${id}`,
                     state: item,
-                }}>
+                }}
+                    data-testid={`view${id}`}
+                >
                     View
                 </StyledLink>
-                <Button onClick={updateCart}>Add to cart</Button>
+                <Button onClick={updateCart} data-testid={`add${id}`}>Add to cart</Button>
             </StyledOverlay>
             <StyledImage src={photo} alt={name}/>
             <div>

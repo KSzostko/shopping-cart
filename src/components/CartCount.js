@@ -19,7 +19,7 @@ const StyledWrapper = styled.div`
 
 function CartCount(props) {
     return (
-        <StyledWrapper>
+        <StyledWrapper data-testid="cart-count">
             {props.children}
         </StyledWrapper>
     );
