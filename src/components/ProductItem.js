@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { addItem } from '../redux/actions';
+import { addItem, addQuantity } from '../redux/actions';
 import Button from './Button';
 
 const StyledListItem = styled.li`
@@ -63,7 +63,8 @@ function ProductItem({ item }) {
     const overlayRef = useRef();
 
     const dispatch = useDispatch();
-    const cartItems = useSelector(state => state.cart.length);
+    const cart = useSelector(state => state.cart);
+    const cartItems = cart.length;
 
     const { id, name, price, photo } = item;
 
@@ -73,17 +74,22 @@ function ProductItem({ item }) {
     }
 
     const updateCart = () => {
-        // TODO: Check if the item is already there, then update only quantity
-        const cartItem = {
-            id: cartItems + 1,
-            productId: id,
-            name,
-            price,
-            photo,
-            quantity: 1,
-        };
+        const index = cart.findIndex(({ productId }) => productId === id);
 
-        dispatch(addItem(cartItem));
+        if(index === -1) {
+            const cartItem = {
+                id: cartItems + 1,
+                productId: id,
+                name,
+                price,
+                photo,
+                quantity: 1,
+            };
+    
+            dispatch(addItem(cartItem));
+        } else {
+            dispatch(addQuantity(id));
+        }
     }
     
     return (

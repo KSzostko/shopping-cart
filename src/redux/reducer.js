@@ -1,4 +1,4 @@
-import { ADD_ITEM, REMOVE_ITEM } from './types';
+import { ADD_ITEM, REMOVE_ITEM, ADD_QUANTITY, SUBTRACT_QUANTITY } from './types';
 
 const initialState = {
     cart: []
@@ -18,6 +18,26 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 cart: state.cart.filter(({ id }) => id !== action.payload),
+            };
+        case ADD_QUANTITY:
+            return {
+                ...state,
+                cart: state.cart.map(item => (
+                    item.productId === action.payload.id ? {
+                        ...item,
+                        quantity: item.quantity + action.payload.amount,
+                    } : item
+                ))
+            };
+        case SUBTRACT_QUANTITY:
+            return {
+                ...state,
+                cart: state.cart.map(item => (
+                    item.productId === action.payload ? {
+                        ...item,
+                        quantity: item.quantity - 1,
+                    } : item
+                ))
             };
         default:
             return state;
