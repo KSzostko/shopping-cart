@@ -32,7 +32,7 @@ const StyledInput = styled.input`
 function Search({ filterProductsFn, count }) {
     return (
         <StyledSearch>
-            <StyledSpan>{count} products</StyledSpan>
+            <StyledSpan data-testid="products-found">{count} products</StyledSpan>
             <StyledInput
                 type="text"
                 placeholder="Search product"
