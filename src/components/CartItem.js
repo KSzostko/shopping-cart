@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { removeItem, addQuantity, subtractQuantity } from '../redux/actions';
 import Button from './Button';
 
 const StyledListItem = styled.li`
@@ -28,7 +30,21 @@ const StyledButton = styled(Button)`
     font-size: 1.25rem;
 `;
 
-function CartItem({ name, price, quantity, photo }) {
+function CartItem({ productId, name, price, quantity, photo }) {
+    const dispatch = useDispatch();
+    
+    const handleAddClick = () => {
+        dispatch(addQuantity(productId));
+    };
+
+    const handleSubtractClick = () => {
+        if(quantity === 1) {
+            dispatch(removeItem(productId));
+        } else {
+            dispatch(subtractQuantity(productId));
+        }
+    };
+    
     return (
         <StyledListItem>
             <StyledImage src={photo} alt={name}/>
@@ -38,10 +54,10 @@ function CartItem({ name, price, quantity, photo }) {
             </div>
             <StyledText>Qty: {quantity}</StyledText>
             <div>
-                <StyledButton black small>
+                <StyledButton onClick={handleAddClick} black small>
                     <i className="fa fa-plus-circle" aria-hidden="true"></i>
                 </StyledButton>
-                <StyledButton red small>
+                <StyledButton onClick={handleSubtractClick} red small>
                     <i className="fa fa-minus-circle" aria-hidden="true"></i>
                 </StyledButton>
             </div>
@@ -50,6 +66,7 @@ function CartItem({ name, price, quantity, photo }) {
 }
 
 CartItem.propTypes = {
+    productId: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     quantity: PropTypes.number.isRequired,

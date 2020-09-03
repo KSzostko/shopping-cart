@@ -18,6 +18,7 @@ function CartList() {
             {cart.map(item => (
                 <CartItem
                     key={item.id}
+                    productId={item.id}
                     name={item.name}
                     price={item.price}
                     quantity={item.quantity}
