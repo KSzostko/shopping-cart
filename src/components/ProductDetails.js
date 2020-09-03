@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addItem, addQuantity } from '../redux/actions';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from './Button';
@@ -37,15 +39,50 @@ const StyledInput = styled.input`
     padding: .5rem .25rem .5rem .5rem;
 `;
 
-function ProductDetails({ name, price, photo }) {
+function ProductDetails({ name, price, photo, prodId }) {
+    const [amount, setAmount] = useState(1);
+
+    const dispatch = useDispatch();
+    const cart = useSelector(state => state.cart);
+    const cartItems = cart.length;
+
+    const handleChange = e => {
+        const number = e.target.value;
+        setAmount(number);
+    };
+
+    const updateCart = () => {
+        const index = cart.findIndex(({ productId }) => productId === prodId);
+
+        if(index === -1) {
+            const cartItem = {
+                id: cartItems + 1,
+                productId: prodId,
+                name,
+                price,
+                photo,
+                quantity: parseInt(amount),
+            };
+    
+            dispatch(addItem(cartItem));
+        } else {
+            dispatch(addQuantity(prodId, parseInt(amount)));
+        }
+    };
+    
     return (
         <StyledWrapper>
             <StyledImage src={photo} alt={name}/>
             <StyledTextWrapper>
                 <StyledName>{name}</StyledName>
                 <StyledPrice>${price}</StyledPrice>
-                <StyledInput type="number" min="1"/>
-                <Button black>Add To Cart</Button>
+                <StyledInput
+                    onChange={handleChange} 
+                    type="number" 
+                    min="1"
+                    value={amount}
+                />
+                <Button onClick={updateCart} black>Add To Cart</Button>
             </StyledTextWrapper>
         </StyledWrapper>
     );
