@@ -77,6 +77,7 @@ function ProductDetails({ name, price, photo, prodId }) {
                 <StyledName>{name}</StyledName>
                 <StyledPrice>${price}</StyledPrice>
                 <StyledInput
+                    data-testid="amount-input"
                     onChange={handleChange} 
                     type="number" 
                     min="1"

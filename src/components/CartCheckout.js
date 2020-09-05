@@ -48,11 +48,11 @@ function CartCheckout() {
         <StyledWrapper>
             <div>
                 <StyledText>Total items</StyledText>
-                <StyledNumber>{totalItems}</StyledNumber>
+                <StyledNumber data-testid="total-items">{totalItems}</StyledNumber>
             </div>
             <StyledPaymentWrapper>
                 <StyledText>Total payment</StyledText>
-                <StyledNumber>${totalPrice.toFixed(2)}</StyledNumber>
+                <StyledNumber data-testid="total-payment">${totalPrice.toFixed(2)}</StyledNumber>
             </StyledPaymentWrapper>
             <StyledButtonWrapper>
                 <Button onClick={handleClick} black>Clear</Button>

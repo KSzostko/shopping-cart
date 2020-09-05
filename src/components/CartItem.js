@@ -50,14 +50,14 @@ function CartItem({ productId, name, price, quantity, photo }) {
             <StyledImage src={photo} alt={name}/>
             <div>
                 <StyledName>{name}</StyledName>
-                <StyledText>Price: ${price}</StyledText>
+                <StyledText data-testid={`cart-price${productId}`}>Price: ${price}</StyledText>
             </div>
-            <StyledText>Qty: {quantity}</StyledText>
+            <StyledText data-testid={`cart-qty${productId}`}>Qty: {quantity}</StyledText>
             <div>
-                <StyledButton onClick={handleAddClick} black small>
+                <StyledButton data-testid={`cart-add${productId}`} onClick={handleAddClick} black small>
                     <i className="fa fa-plus-circle" aria-hidden="true"></i>
                 </StyledButton>
-                <StyledButton onClick={handleSubtractClick} red small>
+                <StyledButton data-testid={`cart-remove${productId}`} onClick={handleSubtractClick} red small>
                     <i className="fa fa-minus-circle" aria-hidden="true"></i>
                 </StyledButton>
             </div>

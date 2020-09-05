@@ -62,7 +62,7 @@ function Navigation() {
                     <StyledLink to="/about">About</StyledLink>
                 </StyledListItem>
                 <StyledListItem>
-                    <StyledLink to="/cart">
+                    <StyledLink to="/cart" data-testid="nav-cart">
                         <i className="fa fa-shopping-cart" aria-hidden="true"></i>
                         <CartCount>{totalItems}</CartCount>
                     </StyledLink>
